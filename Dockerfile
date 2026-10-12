@@ -1,4 +1,4 @@
-# Multi-stage Docker build for Factory Management Spring Boot Backend
+# Multi-stage Docker build for Student Performance Analyzer Spring Boot Backend
 
 # Stage 1: Build with Maven and JDK 17
 FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
