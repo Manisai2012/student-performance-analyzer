@@ -18,7 +18,8 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose port
+ENV PORT=8080
 EXPOSE 8080
 
-# Run Spring Boot
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
+# Run Spring Boot with dynamic PORT binding
+ENTRYPOINT ["sh", "-c", "exec java -Dserver.port=${PORT:-8080} -Djava.security.egd=file:/dev/./urandom -jar app.jar"]
