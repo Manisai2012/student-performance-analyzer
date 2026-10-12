@@ -73,7 +73,7 @@ public class DataSourceConfig {
 
         // Clean & format MySQL URL if needed (e.g. if plain mysql:// was pasted instead of jdbc:mysql://)
         String jdbcUrl = url;
-        if (jdbcUrl != null && jdbcUrl.startsWith("mysql://")) {
+        if (jdbcUrl != null && !jdbcUrl.startsWith("jdbc:") && jdbcUrl.contains("://")) {
             jdbcUrl = "jdbc:" + jdbcUrl;
         }
 
@@ -83,7 +83,7 @@ public class DataSourceConfig {
             config.setUsername(username);
             config.setPassword(password);
             config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            config.setConnectionTimeout(15000); // 15s timeout
+            config.setConnectionTimeout(30000); // 30s timeout for cloud databases
             config.setMaximumPoolSize(5);
             config.setMinimumIdle(1);
             config.setIdleTimeout(600000);
