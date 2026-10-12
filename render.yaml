@@ -38,4 +38,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_BASE_URL
-        sync: false
+        value: https://student-performance-analyzer-1-1yde.onrender.com/api

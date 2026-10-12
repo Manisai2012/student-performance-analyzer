@@ -63,7 +63,7 @@ const Login = () => {
       navigate('/');
     } catch (err) {
       const msg = err.response?.data?.error 
-        || (err.code === 'ERR_NETWORK' ? 'Cannot reach backend server at http://localhost:8080. Please ensure Spring Boot is running.' : null)
+        || (err.code === 'ERR_NETWORK' ? 'Cannot reach backend server. Please verify backend service status.' : null)
         || err.message 
         || 'Invalid credentials. Please try again.';
       setError(msg);
